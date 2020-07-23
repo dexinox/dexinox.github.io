@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>d e m o s</title>
+    <title>DexiinoX</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css">
@@ -10,6 +10,10 @@
   <body>
     <h1> Hello warald </h1>
     <p>I am dexter and here is script</p>
+    
+    <canvas class="canvas js-canvas"></canvas>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3966601-5"></script>
+    
     <script>
     const settings = {
   // Make the loop animated unless ?static is passed to URL
@@ -108,5 +112,11 @@ const sketch = ({ context }) => {
 };
     </script>
     
+    <script>
+        window.dataLayer = window.dataLayer || []
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date())
+        gtag('config', 'UA-3966601-5')
+    </script>
   </body>
 </html>
