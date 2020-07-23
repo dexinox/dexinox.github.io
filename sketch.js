@@ -1,3 +1,17 @@
+// intro for the whole bundle
+var commonjsGlobal = typeof window !== 'undefined' ? window :
+                     typeof global !== 'undefined' ? global :
+                     this;
+
+// individual module
+var foo = (function (module, global) {
+var exports = module.exports;
+/* commonjs module happens */
+return module.exports;
+}({exports:{}}, commonjsGlobal);
+
+export default foo;
+
 const settings = {
   // Make the loop animated unless ?static is passed to URL
   animate: !/static/i.test(window.location.search),
