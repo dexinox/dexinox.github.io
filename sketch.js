@@ -1,16 +1,6 @@
-// Ensure ThreeJS is in global scope for the 'examples/'
-global.THREE = require("three");
-
-// Include any additional ThreeJS examples below
-require("three/examples/js/controls/OrbitControls");
-
-const canvasSketch = require("canvas-sketch");
-
 const settings = {
-  dimensions: [],
-  pixelsPerInch: 300,
-  // Make the loop animated
-  animate: true,
+  // Make the loop animated unless ?static is passed to URL
+  animate: !/static/i.test(window.location.search),
   // Get a WebGL canvas rather than 2D
   context: "webgl"
 };
@@ -18,83 +8,81 @@ const settings = {
 const sketch = ({ context }) => {
   // Create a renderer
   const renderer = new THREE.WebGLRenderer({
-    canvas: context.canvas
+    context
   });
 
   // WebGL background color
-  renderer.setClearColor("black", 1);
+  renderer.setClearColor("#fff", 1);
 
   // Setup a camera
-  const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 100);
-  camera.position.set(1, 2, -4);
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
+  camera.position.set(2, 2, -4);
   camera.lookAt(new THREE.Vector3());
 
   // Setup camera controller
   const controls = new THREE.OrbitControls(camera, context.canvas);
+  controls.enableZoom = false;
 
   // Setup your scene
   const scene = new THREE.Scene();
 
-  // Setup a geometry
-  const geometry = new THREE.SphereGeometry(1, 32, 16);
+  const gridScale = 10;
+  scene.add(new THREE.GridHelper(gridScale, 10, "hsl(0, 0%, 50%)", "hsl(0, 0%, 70%)"));
 
-  const loader = new THREE.TextureLoader();
-  const texture = loader. load("earth.jpg");
-  const moonTexture = loader.load("moon.jpg");
+  const objects = new THREE.Group();
 
-
-  // Setup a material
-  const material = new THREE.MeshStandardMaterial({
-    roughness: 1,
-    metalness: 0,
-    map: texture
-  });
-
+  const sphere = new THREE.SphereGeometry(1, 64, 32);
+  const centerObject = new THREE.Mesh(
+    sphere,
+    new THREE.MeshBasicMaterial({ color: '#FF4136' })
+  );
+  objects.add(centerObject);
   
+  const moonAnchor = new THREE.Group();
+  
+  const moons = new THREE.Group();
+  const moon0 = new THREE.Mesh(
+    sphere,
+    new THREE.MeshBasicMaterial({ color: '#3D9970' })
+  );
+  
+  const moon1 = new THREE.Mesh(
+    sphere,
+    new THREE.MeshBasicMaterial({ color: '#39CCCC' })
+  );
+  moon1.scale.setScalar(0.35);
+  moon1.position.x = 1.5;
+  moon1.position.y = 0.5;
+  
+  moons.add(moon0);
+  moons.add(moon1);
 
-  // Setup a mesh with geometry + material
-  const mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
-
-
-  const moonGroup = new THREE.Group();
-
-  const moonMaterial = new THREE.MeshStandardMaterial({
-    roughness: 1,
-    metalness: 0,
-    map: moonTexture
-  });
-  const moonMesh = new THREE.Mesh(geometry, moonMaterial);
-  moonMesh.position.set(1.5, 1, 0);
-  moonMesh.scale.setScalar(0.25);
-  moonGroup.add(moonMesh);
-
-  scene.add(moonGroup);
-
-
-  const light = new THREE.PointLight("white", 2);
-  light.position.set(2, 2, 0);
-  moonGroup.add(light);
-
-  //scene.add(new THREE.GridHelper(5, 50));
-  //scene.add(new THREE.PointLightHelper(light, 0.15));
-
-
+  moons.scale.setScalar(0.25);
+  moons.position.x = 1.65;
+  
+  moonAnchor.add(moons);
+  objects.add(moonAnchor);
+  
+  objects.position.y = 1;
+  scene.add(objects);
+  
+  // target the center of the objects for orbit controls
+  controls.target.copy(objects.position);
+  
   // draw each frame
   return {
     // Handle resize events here
     resize({ pixelRatio, viewportWidth, viewportHeight }) {
       renderer.setPixelRatio(pixelRatio);
-      renderer.setSize(viewportWidth, viewportHeight, false);
+      renderer.setSize(viewportWidth, viewportHeight);
       camera.aspect = viewportWidth / viewportHeight;
       camera.updateProjectionMatrix();
     },
     // Update & render your scene here
-    render({ time }) {
-      mesh.rotation.y = time * 0.15;
-      moonMesh.rotation.y = time * 0.075;
-      moonGroup.rotation.y = time * 0.5;
-
+    render({ deltaTime }) {
+      moons.rotateY(deltaTime * 0.75);
+      moonAnchor.rotateY(deltaTime * 0.25);
+      
       controls.update();
       renderer.render(scene, camera);
     },
