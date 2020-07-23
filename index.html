@@ -4,69 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css">
-
+    <canvas width="221" height="165" style="width: 700px; height: 500px;"></canvas>
    
   </head>
   <body>
     <h1> Hello haters </h1>
     <p>I am dexter and here is script</p>
     
-    <canvas width="221" height="165" style="width: 177px; height: 132px;"></canvas>
+    
     
     
     <script type="text/javascript" src="sketch.js"></script>
     
-    <script>
-        window.dataLayer = window.dataLayer || []
-        function gtag(){dataLayer.push(arguments)}
-        gtag('js', new Date())
-        gtag('config', 'UA-3966601-5')
-    </script>
-    <script>
-      const host = document.location.hostname;
-      const projectName = host.toLowerCase().replace(/\.glitch\.me$/, "");
-      const link = document.querySelector(".view-source");
-      if (link && host.includes(".glitch.me")) {
-        link.setAttribute(
-          "href",
-          `https://glitch.com/edit/#!/${projectName}?path=sketch.js`
-        );
-        link.style.display = "";
-      }
-
-      const embeds = [...document.querySelectorAll(".embed")];
-      const aspect = 4 / 3;
-      const padding = 0;
-      const maxFrameWidth = Infinity;
-
-      function resize() {
-        const maxFrameHeight = window.innerHeight * 0.5;
-        embeds.forEach(embed => {
-          const parentElement = embed.parentElement;
-          if (!parentElement) return;
-          const rect = parentElement.getBoundingClientRect();
-
-          const parentWidth = rect.width;
-          const parentHeight = rect.height;
-
-          const windowAspect = parentWidth / parentHeight;
-          const scaleToFitPadding = 0;
-          const maxWidth = Math.min(
-            maxFrameWidth,
-            Math.round(parentWidth - padding * 2)
-          );
-          let width;
-          let height;
-          width = maxWidth;
-          height = Math.round(width / aspect);
-          embed.width = width;
-          embed.height = height;
-          embed.style.width = `${width}px`;
-          embed.style.height = `${height}px`;
-        });
-      }
-      resize();
-      window.addEventListener("resize", resize);
-    </script>
+    
+    <script src="sketch.js"></script>
   </body>
 </html>
