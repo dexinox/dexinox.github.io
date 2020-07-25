@@ -1,6 +1,16 @@
+// Ensure ThreeJS is in global scope for the 'examples/'
+global.THREE = require("three");
+
+// Include any additional ThreeJS examples below
+require("three/examples/js/controls/OrbitControls");
+
+const canvasSketch = require("canvas-sketch");
+
 const settings = {
-  // Make the loop animated unless ?static is passed to URL
-  animate: !/static/i.test(window.location.search),
+  dimensions: [],
+  pixelsPerInch: 300,
+  // Make the loop animated
+  animate: true,
   // Get a WebGL canvas rather than 2D
   context: "webgl"
 };
@@ -8,57 +18,130 @@ const settings = {
 const sketch = ({ context }) => {
   // Create a renderer
   const renderer = new THREE.WebGLRenderer({
-    context
+    canvas: context.canvas
   });
 
   // WebGL background color
-  renderer.setClearColor("#fff", 1);
+  renderer.setClearColor("#0000", 1);
 
   // Setup a camera
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
-  camera.position.set(2, 2, -4);
+  const camera = new THREE.PerspectiveCamera(80, 1, 0.01, 100);
+  camera.position.set(5, 2, -4);
   camera.lookAt(new THREE.Vector3());
 
   // Setup camera controller
   const controls = new THREE.OrbitControls(camera, context.canvas);
-  controls.enableZoom = false;
 
   // Setup your scene
   const scene = new THREE.Scene();
 
-  // A grid
-  const gridScale = 10;
-  scene.add(new THREE.GridHelper(gridScale, 10, "hsl(0, 0%, 50%)", "hsl(0, 0%, 70%)"));
+  // Setup a geometry
+  const geometry = new THREE.SphereGeometry(1, 32, 16);
 
-  // Create a box geometry (cube)
-  const box = new THREE.BoxGeometry(1, 1, 1);
-  
-  // Create a plain unlit material
-  const material = new THREE.MeshBasicMaterial({ color: '#0074D9' });
+  const loader = new THREE.TextureLoader();
+  const texture = loader.load("brick-diffuse.jpg");
+  const earthTexture = loader. load("earth.jpg");
+  const moonTexture = loader.load("moon.jpg");
 
-  // Create a mesh
-  const mesh = new THREE.Mesh(box, material);
+
+  // Setup a material
+
   
-  // position the mesh 'on the floor'
-  mesh.position.y = 0.5;
+
+
+
+  const material = new THREE.MeshStandardMaterial({
+    roughness: 1,
+    metalness: 0,
+    map: texture
+  });
+
   
-  // And let's rotate it a bit
-  mesh.rotation.y = 45 * Math.PI / 180;
+
+  // Setup a mesh with geometry + material
   
-  // Add it to the scene
+  //this is sun
+  const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
+
+
+  const sunLight = new THREE.PointLight("white", 2);
+  sunLight.position.set(2, 2, 0);
+  mesh.add(sunLight);
+  //end sun
+
+
+
+  //this is earth
+  const earthGroup = new THREE.Group();
+
+  const earthMaterial = new THREE.MeshStandardMaterial({
+    roughness: 1,
+    metalness: 0,
+    map: earthTexture
+  });
+  const earthMesh = new THREE.Mesh(geometry, earthMaterial);
+  earthMesh.position.set(3, 0, 2);
+  earthMesh.scale.setScalar(0.5);
+  earthGroup.add(earthMesh);
+
+  scene.add(earthGroup);
+
+
+  //end earth
+
+
+
+
+
+
+
+
+  //this is moon
+  const moonGroup = new THREE.Group();
+
+  const moonMaterial = new THREE.MeshStandardMaterial({
+    roughness: 1,
+    metalness: 0,
+    map: moonTexture
+  });
+  const moonMesh = new THREE.Mesh(geometry, moonMaterial);
+  moonMesh.position.set(4, 0, 2);
+  moonMesh.scale.setScalar(0.25);
+  moonGroup.add(moonMesh);
+
+  scene.add(moonGroup);
+
+
+  const light = new THREE.PointLight("white", 2);
+  //light.position.set(2, 2, 0);
+  //moonGroup.add(light);
+  //end moon
+
+
+
+  //scene.add(new THREE.GridHelper(5, 50));
+  scene.add(new THREE.PointLightHelper(light, 0.15));
+
 
   // draw each frame
   return {
     // Handle resize events here
     resize({ pixelRatio, viewportWidth, viewportHeight }) {
       renderer.setPixelRatio(pixelRatio);
-      renderer.setSize(viewportWidth, viewportHeight);
+      renderer.setSize(viewportWidth, viewportHeight, false);
       camera.aspect = viewportWidth / viewportHeight;
       camera.updateProjectionMatrix();
     },
     // Update & render your scene here
-    render() {
+    render({ time }) {
+      mesh.rotation.y = time * 0.1;
+      earthMesh.rotation.y = time * 0.1;
+      earthGroup.rotation.y = time * 0.1;
+      moonMesh.rotation.y = time * 0.1;
+      moonGroup.rotation.y = time * 0.1;
+      
+
       controls.update();
       renderer.render(scene, camera);
     },
