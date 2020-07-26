@@ -48,19 +48,28 @@ var colorArray = [
     '#FFFFFF',
     '#E6E8E6',
     '#CED0CE',
-    '#121212'
+    '#121212',
 ];
 
 
 
-
+console.log();
 
 window.addEventListener('mousemove', 
     function(event) {
         mouse.x = event.x;
         mouse.y = event.y;
         
-})
+});
+
+window.addEventListener('resize', function()
+    {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        init();
+
+});
 
 
 function Circle(x, y, dx, dy, radius) {
@@ -75,7 +84,7 @@ function Circle(x, y, dx, dy, radius) {
     this.draw = function() {
         c.beginPath();
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        c.strokeStyle = "blue";
+        
         c.fillStyle = this.color;
         c.fill();
     }
@@ -84,7 +93,7 @@ function Circle(x, y, dx, dy, radius) {
         if (this.x + this.radius > innerWidth || this.x - this.radius < 0){
             this.dx = -this.dx;
         }
-        if (this.y + this.radius > innerWidth || this.y - this.radius < 0){
+        if (this.y + this.radius > innerHeight || this.y - this.radius < 0){
             this.dy = -this.dy;
         }
 
@@ -111,16 +120,20 @@ function Circle(x, y, dx, dy, radius) {
 
 var circleArray = [];
 
-for (var i=0; i<200; i++) {
-    var radius = Math.random() * 3 + 1;
-    var x = Math.random() * (innerWidth - radius * 2) + radius;
-    var y = Math.random() * (innerHeight - radius * 2) + radius;
-    var dx = (Math.random() - 0.5);
-    var dy = (Math.random() - 0.5);
+
+function init() {
+    circleArray = [];
+    for (var i=0; i<800; i++) {
+        var radius = Math.random() * 3 + 1;
+        var x = Math.random() * (innerWidth - radius * 2) + radius;
+        var y = Math.random() * (innerHeight - radius * 2) + radius;
+        var dx = (Math.random() - 0.5);
+        var dy = (Math.random() - 0.5);
     
-    circleArray.push(new Circle(x, y, dx, dy, radius));
+        circleArray.push(new Circle(x, y, dx, dy, radius));
 }
 
+}
 
 
 function animate() {
@@ -132,4 +145,5 @@ function animate() {
     }
 }
 
+init();
 animate();
