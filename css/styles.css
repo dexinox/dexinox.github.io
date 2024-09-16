@@ -1,62 +1,34 @@
-/* General Styles */
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   background-color: #1a1a1a;
   color: #eaeaea;
-}
-
-/* Header Section */
-header {
-  background-color: #282828;
-  padding: 20px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header .logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #fff;
-}
-
-header .nav-links {
-  list-style: none;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
   padding: 0;
 }
 
-header .nav-links li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-header .nav-links li a {
+h1, h2, h3 {
   color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s ease;
 }
 
-header .nav-links li a:hover {
-  color: #ff9800;
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #6200ea, #ff9800);
+  padding: 10px;
+  text-align: center;
 }
 
-/* Bento Grid */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   padding: 20px;
 }
 
 .bento-item {
-  background: #282828;
-  border-radius: 15px;
+  background-color: #282828;
   padding: 20px;
+  border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -66,145 +38,17 @@ header .nav-links li a:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Gradient Card for Headline Section */
-.headline-card {
-  background: linear-gradient(135deg, #6200ea, #ff9800);
-  color: #fff;
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.headline-card h1 {
-  font-size: 36px;
-  font-weight: 700;
-}
-
-.headline-card p {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #f3f3f3;
-}
-
-/* Testimonials Section */
-.testimonials-card {
-  background-color: #333;
-  color: #fff;
-}
-
-.testimonials-card h3 {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.testimonials-card p {
-  font-size: 16px;
-  color: #bbb;
-  margin-bottom: 10px;
-}
-
-.testimonials-card span {
-  display: block;
-  font-size: 14px;
-  color: #888;
-}
-
-/* Buttons Section */
-.contact-btns {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.contact-btns button {
-  background-color: #6200ea;
-  color: #fff;
+button {
+  background: linear-gradient(45deg, #6200ea, #ff9800);
   border: none;
+  border-radius: 20px;
   padding: 10px 20px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-btns button:hover {
-  background-color: #ff9800;
-}
-
-/* About Me Section */
-.about-me {
-  background-color: #282828;
-  padding: 20px;
-  border-radius: 15px;
-}
-
-.about-me h2 {
-  font-size: 24px;
   color: #fff;
-}
-
-.about-me p {
-  font-size: 16px;
-  color: #ccc;
-}
-
-/* Clients and Partners Logos */
-.clients-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: space-between;
-}
-
-.clients-grid img {
-  max-width: 100px;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.clients-grid img:hover {
-  opacity: 1;
-}
-
-/* Contact Section */
-.contact-form {
-  background-color: #333;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #444;
-  border-radius: 5px;
-  background-color: #222;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-.contact-form label {
-  color: #bbb;
-  font-size: 12px;
-}
-
-.contact-form button {
-  background-color: #6200ea;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form button:hover {
-  background-color: #ff9800;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #282828;
-  color: #bbb;
-  font-size: 14px;
+button:hover {
+  background: linear-gradient(45deg, #ff9800, #6200ea);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

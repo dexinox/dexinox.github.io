@@ -3,82 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jash Patel Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <div class="logo">Jash Patel</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#work">Work History</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <header class="sticky-header">
+        <h1>Pragadeswaran</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#process">Work Process</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Main Bento Grid -->
-    <section class="bento-grid">
-        <!-- Headline Card -->
-        <div class="bento-item headline-card">
-            <h1>Hi, I'm Jash Ishvarbhai Patel</h1>
-            <p>Digital Product Designer | UI/UX Designer | Design Lead</p>
+    <div class="bento-grid">
+        <!-- Profile Card -->
+        <div class="bento-item profile-card" id="about">
+            <img src="profile.jpg" alt="Profile Picture">
+            <h2>Pragadeswaran</h2>
+            <p>Software Engineer | Designer</p>
+            <p>Available for work</p>
+            <button>Contact Me</button>
         </div>
 
-        <!-- Testimonials -->
-        <div class="bento-item testimonials-card">
-            <h3>Testimonials</h3>
-            <p>"Jash's design skills are unparalleled. He transformed our ideas into a sleek, functional website."</p>
-            <span>- David Smith, London UK</span>
-        </div>
-
-        <!-- Contact Me Buttons -->
-        <div class="bento-item">
-            <div class="contact-btns">
-                <button class="contact-btn">Email Me</button>
-                <button class="contact-btn">Schedule a Call</button>
+        <!-- Testimonials Card -->
+        <div class="bento-item testimonials-card" id="testimonials">
+            <h3>Rave Reviews Showcase</h3>
+            <div class="testimonial">
+                <p>"His design skills are unparalleled. Transformed my vague ideas into a stunning website!"</p>
+                <p>- Saran Johnson, New York</p>
+            </div>
+            <div class="testimonial">
+                <p>"A breeze to work with, delivered sleek and functional designs!"</p>
+                <p>- David Smith, London</p>
             </div>
         </div>
 
-        <!-- About Me Section -->
-        <div class="bento-item about-me">
-            <h2>About Me</h2>
-            <p>
-                I am Jash Patel, a dynamic Product Designer specializing in Digital Product Design, UI/UX, and AR/VR/XR/MR design...
-            </p>
+        <!-- Work Process Card -->
+        <div class="bento-item work-process-card" id="process">
+            <h3>Work Process</h3>
+            <ul>
+                <li>Goals & Objectives</li>
+                <li>Research</li>
+                <li>Wireframe</li>
+                <li>Prototyping</li>
+                <li>Finalize Design</li>
+            </ul>
         </div>
 
-        <!-- Clients Section -->
-        <div class="bento-item clients-grid">
-            <img src="path/to/logo1.png" alt="Client Logo 1">
-            <img src="path/to/logo2.png" alt="Client Logo 2">
-            <img src="path/to/logo3.png" alt="Client Logo 3">
-            <img src="path/to/logo4.png" alt="Client Logo 4">
+        <!-- Clients Card -->
+        <div class="bento-item clients-card" id="clients">
+            <h3>Satisfied Partners</h3>
+            <div class="client-logos">
+                <img src="logo1.png" alt="Client Logo">
+                <img src="logo2.png" alt="Client Logo">
+            </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bento-item contact-form">
-        <h2>Contact Me</h2>
-        <form>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <!-- Contact Me Card -->
+        <div class="bento-item contact-card" id="contact">
+            <h3>Let's Work Together</h3>
+            <button>Email Me</button>
+            <button>Schedule a Call</button>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Jash Patel Portfolio</p>
-    </footer>
-
+    <script src="js/app.js"></script>
 </body>
 </html>
