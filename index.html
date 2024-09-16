@@ -4,126 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        section {
-            padding: 2em;
-            margin: 1em 0;
-        }
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .project {
-            margin: 10px;
-            padding: 15px;
-            background-color: #f4f4f4;
-            border: 1px solid #ccc;
-            flex-basis: 30%;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-    </style>
+    <!-- Google Fonts and Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header>
-    <h1>Welcome to My Portfolio</h1>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">My Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work History</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm [Your Name]</h1>
+        <p>Welcome to my portfolio. I'm a [Your Profession], and here's my work!</p>
+        <canvas id="threeCanvas"></canvas>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content-section">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="card">
+                <img src="assets/images/project1.png" alt="Project 1">
+                <div class="card-content">
+                    <h3>Project 1</h3>
+                    <p>A brief description of your project.</p>
+                    <a href="assets/docs/project1.pdf" target="_blank">View PDF</a>
+                    <a href="assets/videos/project1.mp4" target="_blank">View Video</a>
+                </div>
+            </div>
+            <!-- Additional project cards go here -->
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="content-section">
+        <h2>Skills</h2>
+        <ul class="skill-list">
+            <li><span class="material-icons">code</span> JavaScript</li>
+            <li><span class="material-icons">brush</span> Web Design</li>
+            <li><span class="material-icons">devices</span> Responsive Development</li>
+            <!-- Add more skills -->
         </ul>
-    </nav>
-</header>
+    </section>
 
-<section id="home">
-    <h2>Home</h2>
-    <p>Hello! I'm [Your Name], a [Your Role]. Welcome to my portfolio!</p>
-</section>
+    <!-- Work History Section -->
+    <section id="work" class="content-section">
+        <h2>Work History</h2>
+        <div class="timeline">
+            <div class="timeline-event">
+                <h3>Job Title</h3>
+                <p>Company Name - Date Range</p>
+                <p>Description of your role and achievements.</p>
+            </div>
+            <!-- Add more job history -->
+        </div>
+    </section>
 
-<section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project">
-        <h3>Project 1</h3>
-        <p>A description of your first project.</p>
-        <a href="#">View Project</a>
-    </div>
-    <div class="project">
-        <h3>Project 2</h3>
-        <p>A description of your second project.</p>
-        <a href="#">View Project</a>
-    </div>
-</section>
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+        <h2>Contact</h2>
+        <form>
+            <div class="input-field">
+                <input type="text" id="name" name="name" required>
+                <label for="name">Name</label>
+            </div>
+            <div class="input-field">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field">
+                <textarea id="message" name="message" required></textarea>
+                <label for="message">Message</label>
+            </div>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
 
-<section id="about">
-    <h2>About</h2>
-    <p>Here's some information about me and my experience.</p>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea><br>
-        <input type="submit" value="Send">
-    </form>
-</section>
-
-<script type="module">
-  import * as THREE from 'https://cdn.skypack.dev/three@0.155.0';
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer();
-  
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
-
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  const cube = new THREE.Mesh(geometry, material);
-  
-  scene.add(cube);
-  camera.position.z = 5;
-
-  function animate() {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-  }
-  
-  animate();
-</script>
-
-
+    <!-- JS -->
+    <script src="js/three.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
