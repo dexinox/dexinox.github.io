@@ -1,4 +1,4 @@
-// Smooth scroll for navigation links
+// Smooth scroll for navigation links (menu)
 document.querySelectorAll('nav ul li a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -8,13 +8,12 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
   });
 });
 
-// Smooth scroll for buttons (e.g., in contact section)
-document.querySelectorAll('.contact-btns button').forEach(button => {
+// Smooth scroll for buttons (e.g., Email Me, Schedule a Call buttons)
+document.querySelectorAll('.contact-btn').forEach(button => {
   button.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector('#contact'); // Assuming you want to scroll to #contact section
-    target.scrollIntoView({
-      behavior: 'smooth'
-    });
+    const target = document.querySelector('#contact'); // Example: scroll to contact section
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });

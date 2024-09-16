@@ -3,140 +3,208 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #1e1e2f, #28293d);
-  color: white;
   box-sizing: border-box;
+  background-color: #1a1a1a;
+  color: #eaeaea;
 }
 
-/* Bento Grid Layout */
-.grid-container {
+/* Header Section */
+header {
+  background-color: #282828;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+
+header .nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+header .nav-links li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+header .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+header .nav-links li a:hover {
+  color: #ff9800;
+}
+
+/* Bento Grid */
+.bento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
 }
 
-/* Profile Card */
-.profile-card {
-  background-color: #33344a;
-  border-radius: 12px;
+.bento-item {
+  background: #282828;
+  border-radius: 15px;
   padding: 20px;
-  text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.profile-card img {
-  width: 120px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+.bento-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-.profile-details {
-  list-style: none;
-  padding: 0;
-}
-
-.profile-details li {
-  margin-bottom: 8px;
-}
-
-.contact-btns button {
-  background-color: #5a4bfc;
-  border: none;
-  padding: 10px 20px;
-  color: white;
-  border-radius: 5px;
-  margin: 10px;
-  cursor: pointer;
-}
-
-/* Stat Cards */
-.stat-card {
-  background-color: #3a3b54;
-  border-radius: 12px;
-  padding: 20px;
+/* Gradient Card for Headline Section */
+.headline-card {
+  background: linear-gradient(135deg, #6200ea, #ff9800);
+  color: #fff;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 50px 20px;
 }
 
-.stat-card h3 {
-  font-size: 40px;
-  color: #5a4bfc;
+.headline-card h1 {
+  font-size: 36px;
+  font-weight: 700;
 }
 
-/* Workflow Card */
-.workflow-card {
-  background-color: #33344a;
-  border-radius: 12px;
-  padding: 20px;
+.headline-card p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #f3f3f3;
 }
 
-.workflow-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.workflow-card li {
-  margin-bottom: 10px;
-  color: #cfcfcf;
-}
-
-/* Testimonials Card */
+/* Testimonials Section */
 .testimonials-card {
-  background-color: #33344a;
-  border-radius: 12px;
-  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.testimonials-card h3 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .testimonials-card p {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.testimonials-card span {
+  display: block;
   font-size: 14px;
-  margin-bottom: 15px;
+  color: #888;
 }
 
-/* Partners Card */
-.partners-card {
-  background-color: #33344a;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.partners-icons {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.partners-icons img {
-  width: 40px;
-  height: 40px;
-}
-
-/* Contact Card */
-.contact-card {
-  background-color: #33344a;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-}
-
-.contact-card h3 {
-  color: #5a4bfc;
-}
-
-.contact-card p {
-  margin-bottom: 20px;
-}
-
+/* Buttons Section */
 .contact-btns {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .contact-btns button {
-  background-color: #5a4bfc;
+  background-color: #6200ea;
+  color: #fff;
   border: none;
   padding: 10px 20px;
-  color: white;
-  border-radius: 5px;
-  margin: 10px;
+  border-radius: 50px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-btns button:hover {
+  background-color: #ff9800;
+}
+
+/* About Me Section */
+.about-me {
+  background-color: #282828;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.about-me h2 {
+  font-size: 24px;
+  color: #fff;
+}
+
+.about-me p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Clients and Partners Logos */
+.clients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.clients-grid img {
+  max-width: 100px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.clients-grid img:hover {
+  opacity: 1;
+}
+
+/* Contact Section */
+.contact-form {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  color: #bbb;
+  font-size: 12px;
+}
+
+.contact-form button {
+  background-color: #6200ea;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #ff9800;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #282828;
+  color: #bbb;
+  font-size: 14px;
 }
