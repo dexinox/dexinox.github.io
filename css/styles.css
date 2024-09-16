@@ -1,98 +1,138 @@
 /* General Styles */
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-header {
-  background-color: #6200ea;
-  padding: 20px;
-  color: white;
-}
-
-nav .nav-links {
-  display: flex;
-  justify-content: space-around;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.hero {
-  text-align: center;
-  background-color: #f5f5f5;
-  padding: 50px 0;
-}
-
-.content-section {
-  margin: 50px;
-}
-
-.project-grid {
+/* Grid Container */
+.grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  padding: 40px;
 }
 
-.card {
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Stat Cards */
+.stat-card {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-card h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.stat-card p {
+  color: #bdbdbd;
+  margin: 5px 0;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.profile-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.contact-buttons a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #00796b;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background-color: #2c2c2c;
+  padding: 20px;
   border-radius: 8px;
 }
 
-.card img {
-  max-width: 100%;
-  border-bottom: 1px solid #ddd;
+.testimonial-card p {
+  color: #bdbdbd;
 }
 
-.card-content {
+/* Workflow Card */
+.workflow-card {
+  background-color: #2c2c2c;
   padding: 20px;
+  border-radius: 8px;
 }
 
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+.workflow-card ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.timeline {
-  border-left: 2px solid #6200ea;
-  padding-left: 20px;
+.workflow-card ul li {
+  margin: 10px 0;
+  color: #bdbdbd;
 }
 
-.input-field {
-  position: relative;
-  margin-bottom: 20px;
+/* Clients Card */
+.clients-card {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.client-logos img {
+  width: 50px;
+  margin-right: 10px;
 }
 
-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 12px;
+/* Social Media Card */
+.social-media-card {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.btn {
+.social-media-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-media-card ul li {
+  margin: 10px 0;
+}
+
+.social-media-card ul li a {
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
+/* Contact Card */
+.contact-card {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.contact-card .btn {
   background-color: #6200ea;
-  color: white;
+  color: #ffffff;
   padding: 10px 20px;
-  border: none;
   border-radius: 4px;
-  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 5px;
 }

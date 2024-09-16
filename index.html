@@ -4,134 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jash Patel Portfolio</title>
-    <!-- Google Fonts and Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="logo">Jash Patel</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#work">Work History</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Main Grid Layout -->
+    <div class="grid-container">
+        
+        <!-- Statistics Section -->
+        <div class="stat-card">
+            <h2>56+</h2>
+            <p>Projects</p>
+        </div>
+        <div class="stat-card">
+            <h2>23+</h2>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-card">
+            <h2>6+</h2>
+            <p>Years Experience</p>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-card">
+            <img src="assets/images/profile.jpg" alt="Jash Patel">
+            <h2>Jash Patel</h2>
+            <p>Product Designer | UI/UX Designer</p>
+            <p>India | English & Gujarati | Available for work</p>
+            <div class="contact-buttons">
+                <a href="#" class="telegram-btn">Telegram Me</a>
+                <a href="#" class="whatsapp-btn">WhatsApp Me</a>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonial-card">
+            <h3>Rave Reviews Showcase</h3>
+            <p>"Jash's design skills are unparalleled. He transformed my vague ideas into a stunning product!" - Client</p>
+        </div>
+
+        <!-- Workflow Section -->
+        <div class="workflow-card">
+            <h3>Workflow Highlights</h3>
+            <ul>
+                <li>Goals & Objectives</li>
+                <li>Research</li>
+                <li>Wireframing</li>
+                <li>Prototyping</li>
+                <li>Finalize Design</li>
             </ul>
-        </nav>
-    </header>
-
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <h1>Hi, I'm Jash Ishvarbhai Patel</h1>
-        <p>Digital Product Designer | UI/UX Designer | Design Lead</p>
-        <canvas id="threeCanvas"></canvas>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about" class="content-section">
-        <h2>About Me</h2>
-        <p>
-            I am Jash Patel, a dynamic Product Designer specializing in Digital Product Design, UI/UX, and AR/VR/XR/MR design. With a strong foundation in both technical and creative fields, I create seamless and functional user interfaces, always aiming for a balance between creativity and functionality.
-        </p>
-        <p>
-            I hold a Bachelor's Degree in Computer Science Engineering from Gujarat Technological University and have pursued advanced studies in Animation & Virtual Reality at Conestoga College in Canada. With over three years of experience, I have led projects for clients across industries, helping to secure funding and deliver user-centric products.
-        </p>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="content-section">
-        <h2>Notable Projects</h2>
-        <div class="project-grid">
-            <!-- Project 1 -->
-            <div class="card">
-                <img src="assets/images/joy_e_bike.png" alt="Joy E Bike Project">
-                <div class="card-content">
-                    <h3>Joy E Bike Mobile Application</h3>
-                    <p>Designed and developed a mobile app with IoT capabilities for real-time vehicle monitoring, enhancing the user experience for EV riders.</p>
-                    <a href="assets/docs/joy_e_bike.pdf" target="_blank">View PDF</a>
-                    <a href="assets/videos/joy_e_bike.mp4" target="_blank">View Video</a>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="card">
-                <img src="assets/images/cold_chain.png" alt="Cold Chain Monitoring Project">
-                <div class="card-content">
-                    <h3>Cold Chain Monitoring Platform</h3>
-                    <p>Led the design of a real-time platform for tracking perishable goods, ensuring safe delivery and high-quality logistics management.</p>
-                    <a href="assets/docs/cold_chain_monitoring.pdf" target="_blank">View PDF</a>
-                </div>
-            </div>
-
-            <!-- Additional Projects -->
-            <!-- Add more projects as needed -->
         </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="content-section">
-        <h2>Skills & Tools</h2>
-        <ul class="skill-list">
-            <li><span class="material-icons">design_services</span> UI/UX Design</li>
-            <li><span class="material-icons">brush</span> AR/VR/XR Design</li>
-            <li><span class="material-icons">code</span> Prototyping & Wireframing</li>
-            <li><span class="material-icons">developer_board</span> Interaction Design</li>
-        </ul>
-        <h3>Tools:</h3>
-        <ul class="skill-list">
-            <li>Figma</li>
-            <li>Adobe Suite (XD, Photoshop, Illustrator)</li>
-            <li>Unity</li>
-            <li>Blender</li>
-            <!-- Add more tools -->
-        </ul>
-    </section>
-
-    <!-- Work History Section -->
-    <section id="work" class="content-section">
-        <h2>Work Experience</h2>
-        <div class="timeline">
-            <div class="timeline-event">
-                <h3>Design Lead at Thingsup (2019 - 2021)</h3>
-                <p>Led the development of four IoT platforms, securing $600,000 in seed funding through high-quality UI/UX solutions and branding strategies.</p>
+        <!-- Clients Section -->
+        <div class="clients-card">
+            <h3>Satisfied Clients</h3>
+            <p>Partnered with:</p>
+            <div class="client-logos">
+                <img src="assets/images/client1.png" alt="Client 1">
+                <img src="assets/images/client2.png" alt="Client 2">
+                <!-- Add more logos as needed -->
             </div>
-            <div class="timeline-event">
-                <h3>UI/UX Designer at CWS Services (2017 - 2019)</h3>
-                <p>Contributed to various website and mobile app projects, applying user-centered design principles for optimal results.</p>
-            </div>
-            <!-- Add more work history as needed -->
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="content-section">
-        <h2>Contact Me</h2>
-        <p>If you'd like to work together or learn more, feel free to reach out!</p>
-        <form>
-            <div class="input-field">
-                <input type="text" id="name" name="name" required>
-                <label for="name">Name</label>
-            </div>
-            <div class="input-field">
-                <input type="email" id="email" name="email" required>
-                <label for="email">Email</label>
-            </div>
-            <div class="input-field">
-                <textarea id="message" name="message" required></textarea>
-                <label for="message">Message</label>
-            </div>
-            <button type="submit" class="btn">Send</button>
-        </form>
-    </section>
+        <!-- Social Media Section -->
+        <div class="social-media-card">
+            <h3>Follow Me</h3>
+            <p>@jash_pateldesigner</p>
+            <ul>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
 
-    <!-- JS -->
-    <script src="js/three.js"></script>
-    <script src="js/app.js"></script>
+        <!-- Contact Section -->
+        <div class="contact-card">
+            <h3>Let's Work Together!</h3>
+            <p>Let's Make Magic Happen Together</p>
+            <div class="contact-actions">
+                <a href="mailto:example@example.com" class="btn">Email Me</a>
+                <a href="#" class="btn">Schedule a Call</a>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
