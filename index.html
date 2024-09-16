@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Pragadeswaran's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header class="sticky-header">
-        <h1>Pragadeswaran</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#process">Work Process</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="bento-grid">
+    <div class="grid-container">
         <!-- Profile Card -->
-        <div class="bento-item profile-card" id="about">
-            <img src="profile.jpg" alt="Profile Picture">
-            <h2>Pragadeswaran</h2>
-            <p>Software Engineer | Designer</p>
-            <p>Available for work</p>
-            <button>Contact Me</button>
+        <div class="card profile-card">
+            <div class="profile-header">
+                <img src="profile.jpg" alt="Pragadeswaran's Picture" class="profile-img">
+                <div class="profile-details">
+                    <h2>Pragadeswaran</h2>
+                    <p>I'm a Designer | Software Engineer</p>
+                    <p class="status"><span class="dot"></span> Available To Work</p>
+                </div>
+            </div>
+            <div class="profile-info">
+                <p><span class="material-icons">place</span> India</p>
+                <p><span class="material-icons">language</span> English & Tamil</p>
+                <p><span class="material-icons">code</span> Software Engineer</p>
+                <p><span class="material-icons">schedule</span> IST</p>
+                <div class="contact-buttons">
+                    <button class="telegram-btn">Telegram Me</button>
+                    <button class="whatsapp-btn">WhatsApp Me</button>
+                </div>
+            </div>
         </div>
 
         <!-- Testimonials Card -->
-        <div class="bento-item testimonials-card" id="testimonials">
+        <div class="card testimonials-card">
             <h3>Rave Reviews Showcase</h3>
             <div class="testimonial">
-                <p>"His design skills are unparalleled. Transformed my vague ideas into a stunning website!"</p>
+                <p>"Pragadesh's design skills are unparalleled. He transformed my vague ideas into a stunning website."</p>
                 <p>- Saran Johnson, New York</p>
             </div>
             <div class="testimonial">
-                <p>"A breeze to work with, delivered sleek and functional designs!"</p>
+                <p>"Working with Pragadesh was a breeze. He not only delivered a sleek and functional website but also provided excellent support throughout the process."</p>
                 <p>- David Smith, London</p>
             </div>
         </div>
 
         <!-- Work Process Card -->
-        <div class="bento-item work-process-card" id="process">
-            <h3>Work Process</h3>
+        <div class="card process-card">
+            <h3>Work Process Highlights</h3>
             <ul>
                 <li>Goals & Objectives</li>
                 <li>Research</li>
@@ -56,22 +58,24 @@
         </div>
 
         <!-- Clients Card -->
-        <div class="bento-item clients-card" id="clients">
+        <div class="card clients-card">
             <h3>Satisfied Partners</h3>
             <div class="client-logos">
                 <img src="logo1.png" alt="Client Logo">
                 <img src="logo2.png" alt="Client Logo">
+                <!-- Additional logos -->
             </div>
         </div>
 
-        <!-- Contact Me Card -->
-        <div class="bento-item contact-card" id="contact">
+        <!-- Contact Card -->
+        <div class="card contact-card">
             <h3>Let's Work Together</h3>
-            <button>Email Me</button>
-            <button>Schedule a Call</button>
+            <p>Let's make magic happen together!</p>
+            <div class="contact-actions">
+                <button class="email-btn">Email Me</button>
+                <button class="call-btn">Schedule a Call</button>
+            </div>
         </div>
     </div>
-
-    <script src="js/app.js"></script>
 </body>
 </html>
